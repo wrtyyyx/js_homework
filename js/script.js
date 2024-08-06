@@ -1,3 +1,6 @@
-let hour = +prompt('Enter your hour');
-const result = hour * 60 * 60;
-alert(`В ${hour} часах ${result} cекунд `);
+const num_1 = +prompt('Enter your number 1');
+const num_2 = +prompt('Enter your number 1');
+const num_3 = +prompt('Enter your number 1');
+
+const result  = ( num_1 + num_2 + num_3)/3;
+alert('Result: ' + result);
