@@ -2,49 +2,53 @@ const userAge = prompt("What is your age?");
 const userCity = prompt("What is your city?");
 const userSport = prompt("What is your sport?");
 
-let userSportMessege
-let userCityMessege;
-let userAgeMessege;
-switch (userCity){
-    case 'Kиїв':
-         userCityMessege = 'Ти живеш у столиці Украіни';
-        break
+let userSportMessage;
+let userCityMessage;
+let userAgeMessage;
+
+switch (userCity) {
+    case 'Київ':
+        userCityMessage = 'Ти живеш у столиці України';
+        break;
     case 'Лондон':
-        userCityMessege = 'Ти живеш у столиці Велико Британії'
-        break
+        userCityMessage = 'Ти живеш у столиці Великої Британії';
+        break;
     case 'Вашингтон':
-        userCityMessege = 'Ти живеш у столиці США'
-        break
+        userCityMessage = 'Ти живеш у столиці США';
+        break;
     default:
-        userCityMessege = `Ти живеш у місті ${userCity}.`
-
+        userCityMessage = `Ти живеш у місті ${userCity}.`;
 }
 
-
-
-switch (userSport){
+switch (userSport) {
     case 'футбол':
-         useSportMessege = 'Круто! ти бажаєш бути як мессі?';
-        break
+        userSportMessage = 'Круто! ти бажаєш бути як Мессі?';
+        break;
     case 'баскетбол':
-        userSportMessege = 'Круто! ти бажаєш бути як майкл джордан?'
-        break
+        userSportMessage = 'Круто! ти бажаєш бути як Майкл Джордан?';
+        break;
     case 'спорт зал':
-        userSportMessege = 'Круто! ти бажаєш бути як рони колейман?'
-        break
+        userSportMessage = 'Круто! ти бажаєш бути як Роні Колеман?';
+        break;
     default:
-        userSportMessege = `Чудовий спорт ${userSport}.`
-
+        userSportMessage = `Чудовий спорт ${userSport}.`;
 }
 
-if (userAge === null){
-    userAgeMessege = 'Ви не захотіли ввести'
-}else if(userCity === null){
-    userCityMessege = 'Шкода, що Ви не захотіли ввести своє місто'
-}else if(userSport === null){
-    userSportMessege === 'Шкода, що Ви не захотіли ввести свій спорт'
+const currentYear = new Date().getFullYear();
+let age;
+if (userAge !== null && userAge !== "") {
+    age = currentYear - parseInt(userAge);
+    userAgeMessage = `Ваш вік ${age}`;
+} else {
+    userAgeMessage = 'Ви не захотіли ввести свій вік';
 }
 
-alert(`Ваш вік ${userAgeMessege},${userCityMessege},${userSportMessege} `)
+if (userCity === null || userCity === "") {
+    userCityMessage = 'Шкода, що Ви не захотіли ввести своє місто';
+}
 
+if (userSport === null || userSport === "") {
+    userSportMessage = 'Шкода, що Ви не захотіли ввести свій спорт';
+}
 
+alert(`${userAgeMessage}, ${userCityMessage}, ${userSportMessage}`);
