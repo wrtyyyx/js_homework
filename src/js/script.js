@@ -11,7 +11,7 @@ switch (true){
   case numOrStr.trim() === '':
     alert('empty string')
     break
-  case isNaN(+numOrStr) && typeof numOrStr === 'string':
+  case isNaN(+numOrStr) && !typeof numOrStr === 'number':
     alert('NaN number')
     break
   default:
