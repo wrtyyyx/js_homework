@@ -13,21 +13,21 @@
 //     console.log('OK!')
 // }
 
-let numOrStr = prompt("input number or string");
+const numOrStr = prompt("input number or string");
 console.log(numOrStr);
+console.log( typeof numOrStr);
 
-switch (true) {
+switch (true){
   case numOrStr === null:
-    console.log("ви скасували");
-    break;
-  case numOrStr.trim() === "":
-    console.log("Empty String");
-    break;
-  case isNaN(+numOrStr):
-    console.log(" number is Ba_NaN");
-
-    break;
-
+    alert('You cancel')
+    break
+  case numOrStr.trim() === '':
+    alert('empty string')
+    break
+  case isNaN(+numOrStr) && typeof +numOrStr === 'string':
+    alert('NaN number')
+    break
   default:
-    console.log("OK!");
+    alert('ok')
+
 }
