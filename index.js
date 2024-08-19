@@ -1,4 +1,4 @@
-alert(12312)
-console.log('test')
+alert(12312);
+console.log('test');
 
-console.log()
+console.log();
