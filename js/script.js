@@ -1,11 +1,10 @@
 'use strict';
 
-const insertWordInto = function (str) {
+const insertWordInto = (str) => {
   let insCount = 0;
 
-  return function inputWord(word) {
+  return (word) => {
     const words = str.split(' ');
-
     if (insCount === 0) {
       const mid = Math.floor(words.length / 2);
       words.splice(mid, 0, word);
@@ -15,9 +14,7 @@ const insertWordInto = function (str) {
       words.push(word);
     }
     insCount += 1;
-    if (insCount >= 3) {
-      insCount = Math.floor(insCount / 2);
-    }
+
     return words.join(' ');
   };
 };
