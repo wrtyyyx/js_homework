@@ -6,16 +6,6 @@ const complexArray = [
   [[10, 11], 12, 13],
   [33, 23, [23]],
 ];
-// const flat = function (arr) {
-//   return function up(level = 0) {
-//     let result = arr;
-//     if (level === 0) {
-//       result = result.flat(arr.length + 1);
-//       return result;
-//     } else result = result.flat(level);
-//     return result;
-//   };
-// };
 
 const flat = function (arr, depth = 0) {
   let result = [];
