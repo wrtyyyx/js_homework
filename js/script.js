@@ -6,12 +6,12 @@ let num = 1;
 
 const createTable = () => {
   const table = document.createElement('table');
-  for (let tr = 0; tr < row; tr++) {
+  for (let i = 0; i < row; i++) {
     const rowElement = document.createElement('tr');
-    for (let td = 0; td < colum; td++) {
-      const cell = document.createElement('td');
-      rowElement.appendChild(cell);
-      cell.innerHTML = num;
+    for (let j = 0; j < colum; j++) {
+      const td = document.createElement('td');
+      rowElement.appendChild(td);
+      td.innerHTML = num;
       num++;
     }
     table.appendChild(rowElement);
