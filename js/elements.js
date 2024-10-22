@@ -1,16 +1,17 @@
-export const createTodoElement = ({ title, description }) => {
+import { removeBtn, todoItemContainer, editBtn } from './constants.js';
+export const createTodoElement = ({ title, description, id }) => {
   const todoWrapper = document.createElement('div');
   todoWrapper.className = 'col-4';
+  todoWrapper.setAttribute(todoItemContainer.attr, id);
 
   todoWrapper.innerHTML = `
             <div class="taskWrapper">
-                <div class="taskHeading">${title}</div>
+                <div class="taskHeading">${id} | ${title}</div>
                 <div class="taskDescription">${description}</div>
-                <button data-btn-delete class="btn btn-danger">Delete</button>
+                <hr>
+                <button class="btn btn-danger" ${removeBtn.attr}><i class="bi bi-trash3-fill"></i></button>
+                <button class="btn btn-primary" ${editBtn.attr}><i class="bi bi-pencil-square"></i></button>
             </div>`;
-  const btnDel = todoWrapper.querySelector('button');
-  btnDel.addEventListener('click', () => {
-    todoWrapper.style.display = 'none';
-  });
+
   return todoWrapper;
 };

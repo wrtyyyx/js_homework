@@ -2,30 +2,17 @@
 import { createTodoElement } from './elements.js';
 import getTodoHandlers from './hendlers.js';
 import { storageKey } from './constants.js';
+import { saveData } from './dataHendling.js';
+import { editItemHandler, removeItemHandler } from './controlHendelers.js';
 
 (function () {
   const todoForm = document.querySelector('[data-todo-form]');
   const todoListContainer = document.querySelector('#todoItems');
-  const saveData = (dataToSave) => {
-    const savedData = localStorage.getItem(storageKey);
-    const strinData = (dataToString) => {
-      localStorage.setItem(storageKey, JSON.stringify(dataToString));
-    };
-    if (!savedData) {
-      const prepearedData = [dataToSave];
-      strinData(prepearedData);
-    } else {
-      const prepearedData = JSON.parse(savedData);
-      prepearedData.push(dataToSave);
-      strinData(prepearedData);
-    }
-
-    console.log(savedData);
-  };
 
   const hendelFormData = ({ event, formData }) => {
-    const todoElement = createTodoElement(formData);
-    saveData(formData);
+    const saveFormData = saveData(formData);
+
+    const todoElement = createTodoElement(saveFormData);
     todoListContainer.prepend(todoElement);
     event.target.reset();
   };
@@ -37,8 +24,11 @@ import { storageKey } from './constants.js';
 
   todoForm.addEventListener('submit', handleFormSubmit);
   todoForm.addEventListener('input', handleInputChange);
+  todoListContainer.addEventListener('click', removeItemHandler);
+  todoListContainer.addEventListener('click', editItemHandler);
   document.addEventListener('DOMContentLoaded', () => {
     const savedData = JSON.parse(localStorage.getItem(storageKey));
+    if (!savedData) return;
     savedData.forEach((todoItem) => {
       const todoElement = createTodoElement(todoItem);
       todoListContainer.prepend(todoElement);
