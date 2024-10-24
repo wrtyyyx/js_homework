@@ -29,7 +29,7 @@ if (typeof product.price !== 'number' || product.price < 0) {
   Object.defineProperty(product, 'price', {
     writable: false,
   });
-  throw new Error('Value of property price must be more than 0');
+  throw new Error('Value of property price must be a number and more than 0');
 }
 // totalValue
 Object.defineProperty(product, 'totalValue', {
